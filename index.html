@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rachel Mantilla Portfolio</title>
+<meta name="description" content="Interior design portfolio: traditional and transitional residential and hospitality projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..600&family=Jost:wght@300..500&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!--BODY-->
+<header class="site-head">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="Back to top">
+      <span class="mark-badge" id="mono">RM</span>
+      <span class="mark-name" data-name>Rachel Mantilla</span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#work">Work</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="eyebrow">Interior Design Portfolio</span>
+        <h1 id="hero-name">Rachel <em>Mantilla</em></h1>
+        <p class="hero-intro" id="hero-intro"></p>
+        <div class="hero-meta" id="hero-meta"></div>
+        <div class="hero-actions">
+          <a class="btn" href="#work">View the work</a>
+          <a class="btn ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <figure class="hero-frame" style="margin:0">
+        <div class="arch" id="hero-art"></div>
+        <figcaption class="hero-caption" id="hero-caption"></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="section" id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <div><span class="eyebrow">Selected work</span><h2>Drawn by hand, <em>planned with care</em></h2></div>
+        <div class="filters" id="filters" role="group" aria-label="Filter projects"></div>
+      </div>
+      <div class="gallery" id="gallery"></div>
+    </div>
+  </section>
+
+  <section class="section about" id="about">
+    <div class="wrap">
+      <figure class="portrait" style="margin:0">
+        <div class="frame" id="portrait"></div>
+        <figcaption id="portrait-cap"></figcaption>
+      </figure>
+      <div class="about-copy">
+        <span class="eyebrow">About</span>
+        <h2>Functional spaces, <em>thoughtfully made</em></h2>
+        <div class="about-copy" id="about-text"></div>
+        <ol class="timeline" id="timeline" aria-label="Education and experience"></ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="skills">
+    <div class="wrap">
+      <div class="section-head">
+        <div><span class="eyebrow">Skills</span><h2>From the first sketch <em>to the finish schedule</em></h2></div>
+      </div>
+      <div class="skills-grid">
+        <div class="discipline-list" id="disciplines"></div>
+        <div>
+          <div class="side-block"><span class="eyebrow">Software</span><ul class="software" id="software"></ul></div>
+          <div class="side-block"><span class="eyebrow">By hand</span><div class="hand" id="hand"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section contact" id="contact">
+    <div class="wrap">
+      <div style="display:grid;gap:24px">
+        <span class="eyebrow">Contact</span>
+        <h2>Let's build <em>something thoughtful</em></h2>
+        <p style="max-width:44ch;opacity:.8">Seeking an interior design internship. A full résumé and printed portfolio are available on request.</p>
+        <div><a class="btn" id="mail-btn" href="#contact">Email me</a></div>
+      </div>
+      <div class="contact-lines">
+        <div class="contact-line"><span class="label">Email</span><div class="val"><span id="email"></span><button class="copy-btn" id="copy-email" type="button">Copy</button></div></div>
+        <div class="contact-line"><span class="label">Based in</span><div class="val"><span id="loc"></span></div></div>
+        <div class="contact-line" id="links-line"><span class="label">Elsewhere</span><div class="val"><span id="links" style="user-select:auto"></span></div></div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="site-foot"><div class="wrap"><span>© <span id="year">2026</span> <span data-name>Rachel Mantilla</span></span><span>Interior design portfolio</span></div></footer>
+
+<div class="project-view" id="project-view" hidden role="dialog" aria-modal="true" aria-label="Project"></div>
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Image viewer">
+  <div class="stage"></div>
+  <div class="lb-foot"><span id="lb-cap"></span><div class="ctrls"><button id="lb-prev" type="button">Prev</button><button id="lb-next" type="button">Next</button><button id="lb-close" type="button">Close</button></div></div>
+</div>
+
+<script src="projects.js"></script>
+<script src="app.js"></script>
+<!--/BODY-->
+</body>
+</html>
