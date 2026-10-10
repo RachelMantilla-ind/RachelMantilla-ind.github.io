@@ -17,6 +17,7 @@ window.SITE = {
   school: "Seminole State College of Florida, Class of 2028",
   location: "Sebring, Florida",
   email: "rachel.mantilla001@yahoo.com",
+  resume: "files/Rachel-Mantilla-Resume.pdf",   // downloadable résumé (phone number left off on purpose)
   linkedin: "",   // add her LinkedIn URL when she has one; the link appears automatically
   github: "",     // add her GitHub URL when she has one
   instagram: "",

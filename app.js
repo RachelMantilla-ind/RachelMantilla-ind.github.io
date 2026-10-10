@@ -190,6 +190,7 @@
 
     $("#email").textContent = S.email;
     $("#mail-btn").href = "mailto:" + S.email;
+    document.querySelectorAll("[data-resume]").forEach((a) => { if (S.resume) a.href = S.resume; else a.hidden = true; });
     const links = [["LinkedIn", S.linkedin], ["GitHub", S.github], ["Instagram", S.instagram]].filter(([, u]) => u);
     $("#links").innerHTML = links.map(([n, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${n}</a>`).join(" &nbsp;·&nbsp; ");
     $("#links-line").hidden = !links.length;
