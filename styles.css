@@ -353,3 +353,23 @@ svg.ph { display: block; }
 .card-media img { object-fit: cover; }
 .about-copy blockquote cite { display: block; margin-top: 10px; font-family: var(--body); font-style: normal; font-size: var(--step--1); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
 .software li { justify-content: flex-start; }
+
+/* ---------- 3D model viewer ---------- */
+.model-view { position: relative; aspect-ratio: 16 / 10; max-width: 100%; overflow: hidden; background: radial-gradient(120% 90% at 50% 35%, var(--paper) 0%, var(--paper-2) 70%); }
+@media (max-width: 640px) { .model-view { aspect-ratio: 4 / 4.2; } }
+.mv-canvas { position: absolute; inset: 0; touch-action: none; cursor: grab; }
+.mv-canvas:active { cursor: grabbing; }
+.mv-canvas canvas { display: block; width: 100% !important; height: 100% !important; opacity: 0; transition: opacity .8s ease; }
+.model-view.ready canvas { opacity: 1; }
+.mv-status { position: absolute; inset: 0; display: grid; place-items: center; margin: 0; font-size: var(--step--1); letter-spacing: .2em; text-transform: uppercase; color: var(--ink-soft); pointer-events: none; }
+.mv-ui { position: absolute; left: 16px; right: 16px; top: 16px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; pointer-events: none; }
+.mv-ui > * { pointer-events: auto; }
+.mv-seg { display: flex; background: var(--veil); border: 1px solid var(--rule); backdrop-filter: blur(6px); }
+.mv-seg button, .mv-reset { font: inherit; font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; padding: 9px 14px; border: 0; background: transparent; color: var(--ink-soft); cursor: pointer; }
+.mv-seg button + button { border-left: 1px solid var(--rule); }
+.mv-seg button:hover, .mv-reset:hover { color: var(--brass); }
+.mv-seg button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.mv-reset { background: var(--veil); border: 1px solid var(--rule); backdrop-filter: blur(6px); }
+.mv-hint { position: absolute; left: 16px; bottom: 14px; display: flex; align-items: center; gap: 10px; font-size: var(--step--1); color: var(--ink-soft); pointer-events: none; }
+.mv-badge { font-family: var(--display); font-style: italic; color: var(--brass); font-size: 1.1rem; }
+@media (max-width: 520px) { .mv-seg button, .mv-reset { padding: 8px 10px; letter-spacing: .1em; } }

@@ -234,7 +234,22 @@
   /* ---------- project page ---------- */
   const view = $("#project-view");
   let current = -1, lastScroll = 0;
+  let disposeViewer = null;
+  function stopViewer() { if (disposeViewer) disposeViewer(); disposeViewer = null; }
+  function modelView(m) {
+    const levels = m.levels || [["Whole building", "all"]];
+    return `<figure class="model-view" style="margin:0">
+      <div class="mv-canvas"></div>
+      <p class="mv-status">Loading model</p>
+      <div class="mv-ui">
+        <div class="mv-seg" role="group" aria-label="Section cut">${levels.map(([n, v], k) => `<button type="button" data-cut="${esc(v)}" aria-pressed="${k === 0}">${esc(n)}</button>`).join("")}</div>
+        <button type="button" class="mv-reset" data-reset>Reset view</button>
+      </div>
+      <figcaption class="mv-hint"><span class="mv-badge">3D</span>${esc(m.caption || "Drag to orbit, scroll or pinch to zoom")}</figcaption>
+    </figure>`;
+  }
   function openProject(idx) {
+    stopViewer();
     const p = P[idx]; current = idx;
     if (view.hidden) lastScroll = window.scrollY;
     const prev = P[(idx - 1 + P.length) % P.length], next = P[(idx + 1) % P.length];
@@ -251,7 +266,7 @@
           <h1>${esc(p.title)}</h1>
           <p class="lede">${esc(p.summary)}</p>
         </div>
-        <div class="wrap"><div class="pv-hero" data-lb="0">${media(p, 0, true)}</div>
+        <div class="wrap">${p.model ? modelView(p.model) : `<div class="pv-hero" data-lb="0">${media(p, 0, true)}</div>`}
           <dl class="spec" style="--n:${spec.length}">${spec.map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>
         </div>
         <div class="wrap pv-body">
@@ -274,6 +289,11 @@
         <button type="button" data-go="${esc(prev.slug)}"><small>← Previous</small><strong>${esc(prev.title)}</strong></button>
         <button type="button" data-go="${esc(next.slug)}"><small>Next →</small><strong>${esc(next.title)}</strong></button>
       </div></nav>`;
+    if (p.model) {
+      const host = $(".model-view", view);
+      import("./viewer.js").then((m) => { if (host.isConnected) disposeViewer = m.mountViewer(host, p.model); })
+        .catch(() => { $(".mv-status", host).textContent = "The 3D model couldn't load."; });
+    }
     view.hidden = false; view.scrollTop = 0;
     document.body.classList.add("locked");
     document.title = `${p.title} · ${S.name}`;
@@ -281,6 +301,7 @@
   }
   function closeProject() {
     if (view.hidden) return;
+    stopViewer();
     view.hidden = true; view.innerHTML = ""; current = -1;
     document.body.classList.remove("locked");
     document.title = `${S.name} Portfolio`;

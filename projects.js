@@ -74,6 +74,30 @@ window.PROJECTS = [
     ]
   },
   {
+    slug: "revit-law-office",
+    title: "Two-Story Law Office in Revit",
+    category: "Commercial",
+    type: "Revit 3D building model",
+    year: "Fall 2026",
+    course: "Revit (IND 2462)",
+    size: "Two stories",
+    style: "Commercial",
+    summary: "A full two-story law office I'm modeling in Revit this semester. Spin it, zoom in, and cut away each floor.",
+    solution: "I'm building this model in my Revit course this semester. It has split-face block exterior walls, a curved storefront entry with sunshades, glass interior partitions, steel stairs with pipe guardrails, and a steel structural frame. On this page the roof, ceilings and the structure above them are hidden so you can see into the rooms. Use the Level 1 and Level 2 buttons to slice the building like a floor plan, or drag to walk around it.",
+    materials: ["Split-face block and CMU exterior", "Storefront and curtain wall glazing", "Glass interior partitions", "Steel pan stairs with pipe guardrails", "Carpet and resilient flooring"],
+    software: ["Autodesk Revit"],
+    model: {
+      src: "models/law-office.json",
+      caption: "Drag to orbit, scroll or pinch to zoom",
+      levels: [["Whole building", "all"], ["Level 2", 5.6], ["Level 1", 1.5]]
+    },
+    images: [
+      { src: "images/revit-law-office/model-exterior.jpg", caption: "Revit model, exterior view" },
+      { src: "images/revit-law-office/model-level-1.jpg", caption: "Revit model cut at Level 1" },
+      { src: "images/revit-law-office/model-level-2.jpg", caption: "Revit model cut at Level 2" }
+    ]
+  },
+  {
     slug: "mountain-cabin-retreat",
     title: "Mountain Cabin Retreat",
     category: "Residential",
